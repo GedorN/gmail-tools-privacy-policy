@@ -1,4 +1,4 @@
-# Security Policy - Gmail Helper
+# Security Policy - Gmail Tools
 
 ## 1. Overview
 
