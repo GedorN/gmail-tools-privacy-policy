@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security Policy - Gmail Tools</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 0 16px;
+        line-height: 1.6;
+      }
+      h1 { margin: 0 0 12px; font-size: 2rem; }
+      h2 { margin-top: 28px; font-size: 1.35rem; }
+      h3 { margin-top: 18px; font-size: 1.1rem; }
+      p, li { font-size: 1rem; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0 6px;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      th, td {
+        border: 1px solid rgba(127,127,127,0.35);
+        padding: 10px 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th { font-weight: 650; }
+      hr { margin: 28px 0; border: 0; border-top: 1px solid rgba(127,127,127,0.35); }
+      .meta { opacity: 0.85; }
+      .callout {
+        padding: 12px 14px;
+        border: 1px solid rgba(127,127,127,0.35);
+        border-radius: 12px;
+        margin: 14px 0;
+      }
+      a { text-underline-offset: 2px; }
+    </style>
+  </head>
+
+  <body>
+    <h1>Security Policy - Gmail Tools</h1>
+
+    <h2>1. Overview</h2>
+    <p>
+      The Gmail Helper extension has been developed with security and privacy as fundamental priorities.
+      This document describes the security practices, data protection policies, and measures implemented to protect users.
+    </p>
+
+    <h2>2. Privacy and Data Protection</h2>
+
+    <h3>2.1 Data Collected</h3>
+    <p>The Gmail Helper extension collects only the data <strong>necessary</strong> for its operation:</p>
+    <ul>
+      <li><strong>Authentication information</strong>: OAuth access token for Gmail (stored locally on the device)</li>
+      <li><strong>Configuration data</strong>: User preferences and settings</li>
+      <li><strong>Language information</strong>: User locale and language preferences</li>
+    </ul>
+
+    <h3>2.2 Data Not Collected</h3>
+    <p>The extension <strong>does not</strong>:</p>
+    <ul>
+      <li>Collect personally identifiable information beyond what is necessary</li>
+      <li>Share data with third parties without consent</li>
+      <li>Store email history on servers</li>
+      <li>Perform user tracking</li>
+      <li>Collect browsing information</li>
+    </ul>
+
+    <h2>3. Data Storage</h2>
+
+    <h3>3.1 Local Storage</h3>
+    <ul>
+      <li>All sensitive data is stored <strong>locally</strong> on the user's device</li>
+      <li>Access tokens are stored using the browser's native storage APIs</li>
+      <li>Data is encrypted when possible</li>
+    </ul>
+
+    <h3>3.2 Servers</h3>
+    <ul>
+      <li>The extension does not maintain a user database</li>
+      <li>No personal data is synchronized with external servers</li>
+      <li>Connections to third-party APIs (when used) are made over HTTPS</li>
+    </ul>
+
+    <h2>4. Requested Permissions</h2>
+    <p>The extension requests the following permissions:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Justification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>host_permissions</code> (e.g., <code>https://mail.google.com/*</code>)</td>
+          <td>Gmail integration for functionality within the Gmail interface</td>
+        </tr>
+        <tr>
+          <td><code>storage</code></td>
+          <td>Storage of user configurations and preferences</td>
+        </tr>
+        <tr>
+          <td><code>activeTab</code></td>
+          <td>Detection of active Gmail tabs</td>
+        </tr>
+        <tr>
+          <td><code>scripting</code></td>
+          <td>Script injection for additional functionality in the Gmail interface</td>
+        </tr>
+        <tr>
+          <td><code>identity</code></td>
+          <td>OAuth authentication with Google for secure Gmail access</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p class="meta">
+        Note: OAuth scopes (e.g., Gmail API scopes) are handled by Google OAuth consent and are distinct from Chrome extension permissions.
+      </p>
+    </div>
+
+    <h2>5. Authentication Security</h2>
+
+    <h3>5.1 OAuth 2.0</h3>
+    <ul>
+      <li>We use Google's official OAuth 2.0 flow</li>
+      <li>Passwords are never requested or stored by the extension</li>
+      <li>Tokens are stored locally and can be revoked at any time</li>
+    </ul>
+
+    <h3>5.2 Permission Revocation</h3>
+    <ul>
+      <li>Users can revoke permissions at any time in their browser settings</li>
+      <li>Access revocation is immediate and secure</li>
+    </ul>
+
+    <h2>6. Secure Communication</h2>
+    <ul>
+      <li>All communications with external APIs use <strong>HTTPS</strong> (TLS 1.2 or higher)</li>
+      <li>SSL/TLS certificates are validated</li>
+      <li>Content Security Policy (CSP) is implemented to protect against XSS</li>
+    </ul>
+
+    <h2>7. Secure Development Practices</h2>
+
+    <h3>7.1 Code</h3>
+    <ul>
+      <li>Source code is kept private until release</li>
+      <li>Code review is required before merging changes</li>
+      <li>Security testing is performed regularly</li>
+    </ul>
+
+    <h3>7.2 Updates</h3>
+    <ul>
+      <li>Security updates are released promptly</li>
+      <li>Critical vulnerabilities are handled with maximum priority</li>
+      <li>A detailed changelog is provided for each version</li>
+    </ul>
+
+    <h3>7.3 Dependencies</h3>
+    <ul>
+      <li>Dependencies are kept up to date</li>
+      <li>Audits are performed regularly to identify known vulnerabilities</li>
+    </ul>
+
+    <h2>8. Compliance and Regulations</h2>
+    <p>The extension complies with:</p>
+    <ul>
+      <li><strong>General Data Protection Law (LGPD)</strong> - Brazilian regulation</li>
+      <li><strong>General Data Protection Regulation (GDPR)</strong> - European regulation</li>
+      <li><strong>Chrome Web Store Policies</strong> - Security and privacy requirements</li>
+    </ul>
+
+    <h2>9. What We Do With Your Data</h2>
+
+    <h3>Permitted Use</h3>
+    <ul>
+      <li>Process user requests</li>
+      <li>Improve extension functionality</li>
+      <li>Diagnose issues</li>
+    </ul>
+
+    <h3>Not Permitted Use</h3>
+    <ul>
+      <li>Sell data to third parties</li>
+      <li>Use data for marketing</li>
+      <li>Share data with advertisers</li>
+      <li>Share data with governments without a legal order</li>
+    </ul>
+
+    <h2>10. Data Retention</h2>
+    <ul>
+      <li>Configuration data is retained while the extension is installed</li>
+      <li>Data is automatically deleted when the extension is uninstalled</li>
+      <li>Users can request manual deletion at any time</li>
+    </ul>
+
+    <h2>11. Third-Party Security</h2>
+
+    <h3>Google APIs</h3>
+    <ul>
+      <li>The extension uses Google's official APIs</li>
+      <li>Google is responsible for the security of its services</li>
+      <li>
+        See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>
+        for more information
+      </li>
+    </ul>
+
+    <h2>12. Reporting Security Vulnerabilities</h2>
+    <p>If you discover a security vulnerability:</p>
+    <ol>
+      <li><strong>Do not</strong> disclose it publicly</li>
+      <li>Contact us through the support email</li>
+      <li>Provide technical details and steps to reproduce</li>
+      <li>Wait for confirmation before any public disclosure</li>
+    </ol>
+
+    <h2>13. Updates to This Policy</h2>
+    <p>
+      This security policy may be updated periodically. We recommend reviewing it regularly to stay informed
+      about current security practices.
+    </p>
+    <p class="meta"><strong>Last Updated</strong>: January 2026</p>
+
+    <h2>14. Contact</h2>
+    <p>For questions about security, privacy, or this policy:</p>
+    <ul>
+      <li>Email: <a href="mailto:gedor.silvaneto@gmail.com">gedor.silvaneto@gmail.com</a></li>
+      <!-- <li>Security issues: <a href="https://example.com/report">Report a vulnerability</a></li> -->
+      <!-- <li>Support: <a href="https://example.com/support">Support channel</a></li> -->
+    </ul>
+
+    <hr />
+
+    <p><strong>Thank you for using Gmail Helper. Your security and privacy are our priority.</strong></p>
+  </body>
+</html>
